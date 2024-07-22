@@ -20,7 +20,6 @@ export default class PostFeed {
     }
     likePostByTitle (title) {
         cy.xpath(`//div[@class = 'article-preview' and contains(.,'${title}')]//button`).click();
-        cy.wait(1000);
     }
     getLikeCountByTitle(title) {
         return cy.xpath(`//div[@class = 'article-preview' and contains(.,'${title}')]//button`)

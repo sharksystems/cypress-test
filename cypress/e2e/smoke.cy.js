@@ -59,14 +59,16 @@ describe('Smoke test', () => {
   });
   it('Liking a post on the main page', () => {
     const postTitle = "Ill quantify the redundant TCP bus, that should hard drive the ADP bandwidth!"
-    homePage.clickSignInBtn();
-    loginPage.login(randomUser.getEmail, randomUser.password);
+    const likeUser = new RandomUser();
+
+    homePage.clickSignUpBtn();
+    registrationPage.registerUser(likeUser.getUsername, likeUser.getEmail, likeUser.getPassword);
     homePage.clickGlobalFeedTab();
     homePage.likeByTitleAndVerify(postTitle);
   });
   it('Removing a favorited article on the profile page', () => {
     const postTitle = "quantifying the circuit wont do anything, we need to parse the back-end FTP interface!"
-   
+    
     homePage.clickSignInBtn();
     loginPage.login(randomUser.getEmail, randomUser.password);
     homePage.clickGlobalFeedTab();
@@ -111,5 +113,8 @@ describe('Smoke test', () => {
     homePage.clickProfileBtn();
     profilePage.clickPostByTitle(randomPost.getTitle);
     fullPostPage.clickDeletePostBtn();
+    homePage.clickProfileBtn();
+    profilePage.assertNoPostsDisplayed();
+
   });
 });
