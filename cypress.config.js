@@ -18,6 +18,11 @@ module.exports = defineConfig({
       return config;
     },
 
+    defaultCommandTimeout: 10000,
+    pageLoadTimeout: 90000,
+    requestTimeout: 5000,
+    responseTimeout: 30000,
+
     viewportWidth: 1280,
     viewportHeight: 720,
 

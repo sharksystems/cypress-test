@@ -87,10 +87,11 @@ describe('Smoke test', () => {
     cy.url().should('eq', 'https://conduit.realworld.how/register');
   });
   it('Creating a post', () => {
+    const postUser = new RandomUser();
     const randomPost = new RandomPost();
 
-    homePage.clickSignInBtn();
-    loginPage.login(randomUser.getEmail, randomUser.password);
+    homePage.clickSignUpBtn();
+    registrationPage.registerUser(postUser.getUsername, postUser.getEmail, postUser.getPassword);
     homePage.clickNewPostBtn();
     postCreationPage.enterPostTitle(randomPost.getTitle);
     postCreationPage.enterPostSummary(randomPost.getSummary);
